@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content-section {
+            display: none;
+            padding: 50px 20px;
+        }
+        .active {
+            display: block;
+        }
+        .project-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 40px;
+        }
+        /* .project-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+        .project-img {
+            width: 400px;
+            height: 300px;
+            object-fit: contain; 
+            background-color: #f0f0f0; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-info {
+            max-width: 500px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">首頁</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <!-- 機器學習專案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            工作專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="deelearning.html" >深度學習</a></li>
+                            <li><a class="dropdown-item" href="openai.html" >OpenAI API 應用</a></li>
+                            <li><a class="dropdown-item" href="web.html" >網路爬蟲與視覺化</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 其他 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            其他專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aoi.html" >AOI 瑕疵檢測</a></li>
+                            <li><a class="dropdown-item" href="kaggle.html" >Kaggle 比賽</a></li>
+                            <li><a class="dropdown-item" href="bert.html" >比較不同BERT模型在QA任務時的表現</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 作品集內容 -->
+    <div class="container mt-4">
+
+        <div class="content-section active">
+            <!-- 第一個專案 -->
+            <div class="project-container">
+                <img src="image/openai_sql.png" class="project-img" alt="監測資料查詢彙整">
+                <div class="project-info">
+                    <h2>監測資料查詢彙整</h2>
+                    <p>選用GPT-4o模型，利用Langchain框架，打造Agent資料檢索系統。讓使用者能透過問答方式，查詢關聯式資料庫資料，
+                        並結合Prompt engineering技術，回答內容可以自訂選擇為文字、折線圖或柱狀圖。
+                        (因屬機敏資料，故不顯示實際數字)
+                    </p>
+                    <p>Agent平均分數 : 95%</p>
+                    <ul>
+                        <li>程式語言 : Python</li>
+                        <li>使用框架 : Langchain</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary">查看詳情</a> -->
+                </div>
+            </div>
+        
+            <!-- 第二個專案 -->
+            <div class="project-container">
+                <img src="image/openai_web.png" class="project-img" alt="文獻查找與會議記錄生成">
+                <div class="project-info">
+                    <h2>文獻查找與會議記錄生成</h2>
+                    <p>結合網路爬蟲與串接OpenAI建立文獻查找、翻譯及摘要與音檔自動生成會議記錄的功能。
+                    </p>
+                    <ul>
+                        <li>程式語言 : Python</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary">查看詳情</a> -->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 引入 Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

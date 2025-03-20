@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep learning</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content-section {
+            display: none;
+            padding: 50px 20px;
+        }
+        .active {
+            display: block;
+        }
+        .project-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 40px;
+        }
+        /* .project-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+        .project-img {
+            width: 400px;
+            height: 300px;
+            object-fit: contain; 
+            background-color: #f0f0f0; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-info {
+            max-width: 500px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">首頁</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <!-- 機器學習專案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            工作專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="deelearning.html" >深度學習</a></li>
+                            <li><a class="dropdown-item" href="openai.html" >OpenAI API 應用</a></li>
+                            <li><a class="dropdown-item" href="web.html" >網路爬蟲與視覺化</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 其他 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            其他專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aoi.html" >AOI 瑕疵檢測</a></li>
+                            <li><a class="dropdown-item" href="kaggle.html" >Kaggle 比賽</a></li>
+                            <li><a class="dropdown-item" href="bert.html" >比較不同BERT模型在QA任務時的表現</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 作品集內容 -->
+    <div class="container  mt-4">
+
+        <div class="content-section active">
+            <!-- 第一個專案 -->
+            <div class="project-container">
+                <img src="image/dl_pet.png" class="project-img" alt="寵物脫毛區域毛量偵測">
+                <div class="project-info">
+                    <h2>寵物脫毛區域毛量偵測</h2>
+                    <p>獸醫師需監測寵物脫毛區域在用藥前後的狀況變化，並評估治療是否有效改善脫毛問題。
+                        訓練YOLOv7模型偵測寵物脫毛區域，
+                        結合OpenCV計算區域毛量比例。
+                        最後利用C#串接模型建立桌面應用程式，供獸醫師使用。
+                    </p>
+                    <p>YOLOv7模型在測試資料集達到100%的Precision、100%的Recall、99.5%的mAP@.5及92.7%的mAP@.5:.95。</p>
+                    <ul>
+                        <li>程式語言 : Python、C#</li>
+                        <li>使用框架 : Pytorch、OpenCV、ONNX</li>
+                        <li>開發系統 : Ubuntu、Windows</li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary">查看詳情</a> -->
+                </div>
+            </div>
+        
+            <!-- 第二個專案 -->
+            <div class="project-container">
+                <img src="image/dl_pig.png" class="project-img" alt="牧場豬隻數量清點">
+                <div class="project-info">
+                    <h2>牧場豬隻數量清點模型</h2>
+                    <p>透訓練YOLOv7模型偵測豬隻，並利用演算法追蹤豬隻移動軌跡，達
+                        成豬隻計數，最後將計算數量結果顯示於燈板，
+                        協助現場人員完成豬隻數量清點工作。
+                    </p>
+                    <p>YOLOv7模型在測試資料集的綜合平均精確率 (mAP@.5)達 99.6%，模型計算豬隻數量準確率達 100%。</p>
+
+                    <ul>
+                        <li>程式語言 : Python</li>
+                        <li>使用框架 : Pytorch</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary">查看詳情</a> -->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 引入 Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

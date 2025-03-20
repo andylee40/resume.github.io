@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOI</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content-section {
+            display: none;
+            padding: 50px 20px;
+        }
+        .active {
+            display: block;
+        }
+        .project-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 40px;
+        }
+        /* .project-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+        .project-img {
+            width: 400px;
+            height: 300px;
+            object-fit: contain; 
+            background-color: #f0f0f0; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-info {
+            max-width: 500px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">首頁</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <!-- 機器學習專案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            工作專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="deelearning.html" >深度學習</a></li>
+                            <li><a class="dropdown-item" href="openai.html" >OpenAI API 應用</a></li>
+                            <li><a class="dropdown-item" href="web.html" >網路爬蟲與視覺化</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 其他 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            其他專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aoi.html" >AOI 瑕疵檢測</a></li>
+                            <li><a class="dropdown-item" href="kaggle.html" >Kaggle 比賽</a></li>
+                            <li><a class="dropdown-item" href="bert.html" >比較不同BERT模型在QA任務時的表現</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 作品集內容 -->
+    <div class="container mt-4">
+
+        <div class="content-section active">
+            <!-- 第一個專案 -->
+            <div class="project-container">
+                <img src="image/aoi_enhanced.png" class="project-img" alt="AOI 瑕疵分類">
+                <div class="project-info">
+                    <h2>AOI 瑕疵分類</h2>
+                    <p>本專案目的為藉由AOI影像訓練深度學習模型辨識產品表面瑕疵。結果顯示，訓練後的預訓練DenseNet121模型的測試準確達到98.89%、
+                        ResNet50模型達到97.75%及EfficientNet-B0模型98.96%，最後我們透過投票的方式綜合三個模型的結果為最後的預測結果，綜合後的集成模型準確達到99.21% (目前排行榜上最高分為99.8%)。
+                    </p>
+                    <p>最終排名為100名，參賽人數有834組，排名為前12%。</p>
+                    <ul>
+                        <li>程式語言 : Python</li>
+                        <li>使用框架 : Pytorch、OpenCV</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <a href="https://github.com/andylee40/aoi_defect_detection" class="btn btn-primary">查看詳情</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 引入 Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrape</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content-section {
+            display: none;
+            padding: 50px 20px;
+        }
+        .active {
+            display: block;
+        }
+        .project-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 40px;
+        }
+        /* .project-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+        .project-img {
+            width: 400px;
+            height: 300px;
+            object-fit: contain; 
+            background-color: #f0f0f0; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-info {
+            max-width: 500px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">首頁</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <!-- 機器學習專案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            工作專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="deelearning.html" >深度學習</a></li>
+                            <li><a class="dropdown-item" href="openai.html" >OpenAI API 應用</a></li>
+                            <li><a class="dropdown-item" href="web.html" >網路爬蟲與視覺化</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- 其他 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            其他專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aoi.html" >AOI 瑕疵檢測</a></li>
+                            <li><a class="dropdown-item" href="kaggle.html" >Kaggle 比賽</a></li>
+                            <li><a class="dropdown-item" href="bert.html" >比較不同BERT模型在QA任務時的表現</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 作品集內容 -->
+    <div class="container mt-4">
+        <div class="content-section active">
+            <!-- 第一個專案 -->
+            <div class="project-container">
+                <img src="image/web_pet.png" class="project-img" alt="每日更新寵物產業資訊網頁平台">
+                <div class="project-info">
+                    <h2>每日更新寵物產業資訊網頁平台</h2>
+                    <p>利用 Python 進行網路爬蟲，每日自動排程將資料匯入資料庫。
+                        最後將資料利用amChart視覺化，利用 PHP 串接 MySQL 資料，
+                        完成動態網頁設計與呈現。
+                    </p>
+                    <p>資料來源 :</p>
+                    <ol>
+                        <li>財政部稅籍(https://data.gov.tw/dataset/9400)</li>
+                        <li>寵物食品申報網(https://petfood.coa.gov.tw/web/page-food.aspx)</li>
+                        <li>特定寵物業管理(https://paim.coa.gov.tw/Web/BusinessList.aspx)</li>
+                    </ol>
+                    <ul>
+                        <li>程式語言 : Python、PHP</li>
+                        <li>網頁開發 : HTML、CSS、Boostrap、amChart</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary">查看詳情</a> -->
+                </div>
+            </div>
+            <!-- 第二個專案 -->
+            <div class="project-container">
+                <img src="image/web_selenium.png" class="project-img" alt="使用Selenium模擬瀏覽器進行網路爬蟲">
+                <div class="project-info">
+                    <h2>使用Selenium模擬瀏覽器進行網路爬蟲</h2>
+                    <p>利用 Python 內的 Selenium 套件模擬人為操作瀏覽器的行為，如：滾動視窗、滑鼠點擊及登入帳密等操作，進行網頁資料的獲取。
+                    </p>
+                    <p>爬取網站：Dcard、FB</p>
+                    <ul>
+                        <li>程式語言 : Python</li>
+                        <li>開發系統 : Ubuntu</li>
+                    </ul>
+                    <a href="https://github.com/andylee40/Python_Selenium" class="btn btn-primary">查看詳情</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 引入 Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

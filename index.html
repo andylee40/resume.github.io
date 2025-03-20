@@ -1,446 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Personal Profile</title>
-<!--     <link rel="stylesheet" href="style.css"> -->
+    <title>Home</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
         }
-
-        header {
-           background: linear-gradient(90deg,#2a9d8f, #264653 ); /* 左到右渐变 */
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            border-radius: 15px;
-/*             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #24292e;
-            color: #fff;
-            margin-top: 20px;
-        }
-
-        .github-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #0366d6;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .github-link:hover {
-            background-color: #0056b3;
-        }
+       
 
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 900px;
         }
-
-        .row {
-            display: flex;
-            gap: 20px;
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+            color: #007bff;
         }
-
-        .row .col:nth-child(1) {
-            flex: 1.5;
+        .list-group-item {
+            background-color: #ffffff;
+            border-left: 5px solid #007bff;
         }
-
-        .row .col:nth-child(2),
-        .row .col:nth-child(3) {
-            flex: 2;
+        .badge {
+            font-size: 14px;
+            padding: 5px 10px;
         }
-        .col {
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #444;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .project-row, .education, .experience {
-            margin-top: 10px;
-        }
-
-        .project {
-            margin-bottom: 15px;
-        }
-
-        .project h4 {
-            margin: 0 0 5px;
-            font-size: 18px;
-            color: #0366d6;
-        }
-
-        .project a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-
-        .project a:hover {
-            text-decoration: underline;
-        }
-
-        .education p, .experience p ,.other p , .skills p{
-            margin: 5px 0;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
         .profile-pic {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
+            margin-right: 20px; /* 讓圖片與文字間距更遠 */
         }
-
-        .about-me {
-            flex: 1;
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
-
-        .about-me h1 {
-            margin: 0;
-        }
-
-        .about-me p {
-            margin: 5px 0;
-        }
-
-        .col-2 {
+        .center-navbar {
+            width: 100%;
             display: flex;
-            flex: 1;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-
-        .col-2 a {
-            color: #0366d6;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .col-2 a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* 平板和手机的 RWD 样式 */
-        @media screen and (max-width: 1024px) { /* 平板尺寸 */
-            .row {
-                flex-direction: column;
-            }
-
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 20px;
-            }
-
-            .about-me {
-                text-align: center;
-            }
-            
-        }
-
-        @media screen and (max-width: 768px) { /* 手机尺寸 */
-            .container {
-                padding: 10px;
-            }
-
-            .row {
-                flex-direction: column;
-            }
-
-            .col {
-                padding: 10px;
-            }
-
-            .profile-pic {
-                width: 150px;
-                height: 150px;
-                margin: 0 auto;
-            }
-
-            .about-me h1 {
-                font-size: 1.5rem;
-            }
-
-            .about-me p {
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 1.25rem;
-            }
-
-            .project h4, .skills li, .experience p {
-                font-size: 1rem;
-            }
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-container">
-                <img class="profile-pic" src="./生活照.jpg" alt="Profile Picture">
-                <div class="about-me">
-                    <h1>李泓呈</h1>
-                    <p>AI 工程師 | ML 工程師 | 資料科學家 | 數據分析師</p>
-                    <p>你好，我是李泓呈，今年25歲，畢業於東海大學應用數學系與輔系統計系。</p>
-                    <p>現任職於農業科技研究院，主要負責資料自動化流程建置與人工智慧軟體的開發與應用。</p>
-                    <p>同時正於中興大學應用數學系大數據研究所假日進修中，預計2025年6月至8月間畢業。</p>
-                   
-<!--                     <a class="github-link" href="https://github.com/yourusername" target="_blank">Visit My GitHub</a> -->
-                </div>
-            </div>
-        </header>
 
-        <main>
-            <div class="row">
-                <div class="col">
-                    <h2>Education & Experience</h2>
-                    <div class="education">
-                        <h3>Education</h3>
-                        <ul>
-                            <p><strong>中興大學 應用數學大數據研究所 碩士 </strong></p>
-                            <p>2023/09 - 2025/07 (假日進修中)</p>
-                            <p><strong>東海大學 應用數學系 學士</strong></p>
-                            <p>2017/09 - 2021/06</p>
-                            <p><strong>東海大學 統計系 學士 （輔系）</strong></p>
-                            <p>2019/09 - 2021/06</p>
-                        </ul>            
-                    </div>
-                    <div class="experience">
-                        <h3>Experience</h3>
-                        <ul>
-                        <p><strong>財團法人農業科技研究院 研究助理 (資訊)</strong></p>
-                        <p>2022/04 - Now</p>
-                        </ul>  
-                    </div>
-                    <br>
-                    <h2>Certifications & Skills</h2>
-                    <div class="other">
-                        <h3>Certifications</h3>
-                        <ul> 
-                            <p><strong>TOEIC 825 (Listening:435,Reading:390)</strong></p>
-                            <p>2024/08/09</p>
-                        </ul>  
-                    </div>
-                    <div class="skills">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li>Python, Pytorch, Tensorflow, scikit-learn</li>
-                            <li>Pandas, OpenCV</li>
-                            <li>Beautifulsoup, Selenium</li>
-                            <li>OpenAI, Langchain, RAG, Agent</li>
-                            <li>Ubuntu, Docker, MySQL</li>
-                            <li>HTML, CSS, JavaScript</li>
-                            <li>Machine Learning, Deep Learning</li>
-                            
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">首頁</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">首頁</a>
+                    </li>
+                    <!-- 機器學習專案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggl" href="#" role="button" data-bs-toggle="dropdown">
+                            工作專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="deelearning.html" >深度學習</a></li>
+                            <li><a class="dropdown-item" href="openai.html" >OpenAI API 應用</a></li>
+                            <li><a class="dropdown-item" href="web.html" >網路爬蟲與視覺化</a></li>
                         </ul>
+                    </li>
+
+                    <!-- 其他 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            其他專案
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aoi.html" >AOI 瑕疵檢測</a></li>
+                            <li><a class="dropdown-item" href="kaggle.html" >Kaggle 比賽</a></li>
+                            <li><a class="dropdown-item" href="bert.html" >比較不同BERT模型在QA任務時的表現</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container  mt-4">
+        <div class="profile-container">
+            <div class="row align-items-center">
+                
+                <!-- 左欄：大頭貼 -->
+                <div class="col-md-2  profile-pic">
+                    <img class="profile-pic" src="image/profile.jpg" alt="Profile Picture">
+                </div>
+
+                <!-- 右欄：個人簡介 -->
+                <div class="col-md-8">
+                    <div class="about-me">
+                        <h1>李泓呈</h1>
+                        <p><strong>AI 工程師 | ML 工程師 | 資料科學家 | 數據分析師</strong></p>
+                        <p>你好，我是李泓呈，今年25歲，畢業於東海大學應用數學系與輔系統計系。</p>
+                        <p>現任職於農業科技研究院，主要負責資料自動化流程建置與人工智慧軟體的開發與應用。</p>
+                        <p>同時正於中興大學應用數學系大數據研究所假日進修中，預計2025年6月至8月間畢業。</p>
                     </div>
                 </div>
 
-                <div class="col">
-                    <h2>Work projects</h2>
-                    <div class="project-row">
-                        <div class="project-column">
-                            <h3>影像辨識</h3>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>寵物脫毛區域毛量偵測（進行中）</h4> 
-                                    </div>
-                                    <div class="col-2">
-<!--                                         <a href="https://github.com/andylee40/Hair_loss" target="_blank">View on GitHub</a> -->
-                                    </div>
-                                </div>
-                                <p>訓練YOLOv7模型偵測寵物脫毛區域，結合OpenCV計算區域毛量比例。最後預計用FastAPI部署成網頁服務，並將此系統服務利用Docker打包，部署至使用者電腦。獸醫師可透過上傳影像至網頁，診斷寵物患病區域用藥前後，脫毛的病情是否有改善。</p>
-                                 <p>YOLOv7模型在測試資料集達到100%的Precision、100%的Recall、99.5%的mAP@.5及92.7%的mAP@.5:.95。</p>
-                                
-                            </div>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>牧場豬隻數量清點模型</h4> 
-                                    </div>
-                                    <div class="col-2">
-<!--                                        <a href="https://github.com/andylee40/Pig-count" target="_blank">View on GitHub</a> -->
-                                    </div>
-                                </div>
-                                <p>訓練YOLOv7模型偵測豬隻，並利用演算法追蹤豬隻移動軌跡，達成豬隻計數，最後將計算數量結果顯示於燈板，協助現場人員完成豬隻數量清點工作。</p>
-                                    <p>YOLOv7模型在測試資料集的綜合平均精確率 (mAP@.5)達 99.6%，模型計算豬隻數量準確率達 100%。</p>
-                                
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="project-column">
-                            <h3>自然語言處理</h3>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>監測資料查詢彙整</h4>
-                                    </div>
-                                    <div class="col-2">
-<!--                                        <a href="https://github.com/andylee40/SQL_chatbot" target="_blank">View on GitHub</a> -->
-                                    </div>
-                                </div>
-                                <p>選用GPT-4o模型，利用Langchain框架，打造Agent資料檢索系統。讓使用者能透過問答方式，查詢關聯式資料庫資料，並結合Prompt engineering技術，回答內容可以自訂選擇為文字、折線圖或柱狀圖。</p>
-                                    <p>Agent平均分數達 95%。</p>
-                            </div>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>文獻查找與會議記錄生成</h4>
-                                    </div>
-                                    <div class="col-2">
-<!--                                       <a href="https://github.com/andylee40/Findpaper_chatbot" target="_blank">View on GitHub</a> -->
-                                    </div>
-                                </div>
-                                <p>結合網路爬蟲與串接OpenAI建立文獻查找、翻譯及摘要與音檔自動生成會議記錄的功能。</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="project-column">
-                            <h3>網路爬蟲與網頁</h3>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>每日更新寵物產業資訊網頁平台</h4>
-                                    </div>
-                                    <div class="col-2">
-<!--                                       <a href="https://github.com/andylee40/Pet-web" target="_blank">View on GitHub</a> -->
-                                    </div>
-                                </div>
-                                <p>利用 Python 進行網路爬蟲，每日自動排程將資料匯入資料庫。最後將資料利用amChart視覺化，利用 PHP 串接 MySQL 資料，完成動態網頁設計與呈現。</p>
-                            </div>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>Selenium模擬瀏覽器進行網路爬蟲</h4>
-                                    </div>
-                                    <div class="col-2">
-                                      <a href="https://github.com/andylee40/Python_Selenium" target="_blank">View on GitHub</a>
-                                    </div>
-                                </div>
-                                <p>利用 Python 內的 Selenium 套件模擬人為操作瀏覽器的行為，如：滾動視窗、滑鼠點擊及登入帳密等操作，進行網頁資料的獲取。</p>
-                            </div>
-                            <div class="project">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <h4>PTT網路爬蟲與輿情分析</h4>
-                                    </div>
-                                    <div class="col-2">
-                                      <a href="https://github.com/andylee40/PTT_scrape" target="_blank">View on GitHub</a>
-                                    </div>
-                                </div>
-                                <p>利用 Python 爬取PTT寵物版過去3年文章資料，將資料清洗過後進行初步統計分析與文字雲繪製，找出社群平台上重點關注寵物關鍵議題與關鍵字。</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <div class="container mt-4">
+        
+        <!-- 學歷 -->
+        <div class="mb-4">
+            <h2 class="section-title">🎓 Education</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h5>中興大學 應用數學大數據研究所（碩士）</h5>
+                    <span class="text-muted">2023/09 - 2025/07 （假日進修中）</span>
+                </li>
+                <li class="list-group-item">
+                    <h5>東海大學 應用數學系（學士）、 統計系（輔系）</h5>
+                    <span class="text-muted">2017/09 - 2021/06</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 工作經歷 -->
+        <div class="mb-4">
+            <h2 class="section-title">💼 Experience</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h5>財團法人農業科技研究院 - 研究助理（資訊）</h5>
+                    <span class="text-muted">2022/04 - Now</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 證照 -->
+        <div class="mb-4">
+            <h2 class="section-title">🏆 Certifications</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h5>TOEIC 825 （Listening: 435, Reading: 390）</h5>
+                    <span class="text-muted">2024/08/09</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 技能 -->
+        <div class="mb-4">
+            <h2 class="section-title">🛠 Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="badge bg-primary">Python</span>
+                            <li class="list-group-item"><strong>人工智慧</strong> : PyTorch, TensorFlow, Scikit-learn, ONNX</li>
+                            <li class="list-group-item"><strong>視覺化</strong> : Matplotlib, Seabon</li>
+                            <li class="list-group-item"><strong>資料處理</strong> : Pandas, OpenCV</li>
+                            <li class="list-group-item"><strong>網路爬蟲</strong> : BeautifulSoup, Selenium</li>
+                            <li class="list-group-item"><strong>生成式AI</strong> : OpenAI, LangChain</li>
+                        </li>
+                        <!-- <li class="list-group-item"><span class="badge bg-success">Data</span></li> -->
+                    </ul>
                 </div>
-
-                <div class="col">
-                    <h2>Other projects</h2>
-                        <div class="project-column">
-                                <h3>Kaggle 比賽</h3>
-                                <div class="project">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <h4>抽菸二分類預測</h4> 
-                                        </div>
-                                        <div class="col-2">
-                                            <a href="https://github.com/andylee40/Kaggle_Binary-Prediction-of-Smoker-Status-using-Bio-Signals" target="_blank">View on GitHub</a>
-                                        </div>
-                                    </div>
-                                    <p>根據患者健康指標的信息，預測患者的吸菸狀態。最後取得前 34%的排名。</p>
-
-                                </div>
-                                <div class="project">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <h4>患者1小時後血糖預測</h4> 
-                                        </div>
-                                        <div class="col-2">
-                                           <a href="https://github.com/andylee40/Kaggle_BrisT1D-Blood-Glucose-Prediction-Competition" target="_blank">View on GitHub</a>
-                                        </div>
-                                    </div>
-                                    <p>基於過去六小時的參與者數據，預測血糖水平在一小時後的數值。最後取得前 60%的排名。</p>
-                                </div>
-                        </div>
-                        
-                        <h3>Aidea 比賽</h3>
-                        <div class="project">
-                            <div class="row">
-                                <div class="col-1">
-                                    <h4>AOI 瑕疵分類</h4> 
-                                </div>
-                                <div class="col-2">
-                                    <a href="https://github.com/andylee40/aoi_defect_detection" target="_blank">View on GitHub</a>
-                                </div>
-                            </div>
-                            <p>本專案目的為藉由AOI影像訓練深度學習模型辨識產品表面瑕疵。結果顯示，訓練後的預訓練DenseNet121模型的測試準確達到98.89%、ResNet50模型達到97.75%及EfficientNet-B0模型98.96%，最後我們透過投票的方式綜合三個模型的結果為最後的預測結果，綜合後的集成模型準確達到99.21% (目前排行榜上最高分為99.8%)。 </p>
-                            <p>最終排名為100名，參賽人數有834組，排名為前12%。</p>
-                        </div>
-                        <hr>
-                        <div class="project-column">
-                                <h3>下班學習～</h3>
-                                <div class="project">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <h4>比較不同BERT模型在QA任務時的表現</h4> 
-                                        </div>
-                                        <div class="col-2">
-                                            <a href="https://github.com/andylee40/Question-answering" target="_blank">View on GitHub</a>
-                                        </div>
-                                    </div>
-                                    <p>利用公開資料集微調不同BERT模型，並比較其在QA任務時的表現。結果顯示，RoBERTa 在兩項指標上均優於其他模型，達到了最高的 Exact Match（EM）分數 0.656 和最高的 F1 分數 0.73。XLNet 緊隨其後，Exact Match 為 0.636，F1 分數為 0.72，而 DistilBERT 表現明顯較差，Exact Match 只有 0.492，F1 分數為 0.57。</p>
-
-                                </div>
-                        </div>
-                    
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="badge bg-success">C++</span> Basic Syntax</li> 
+                        <li class="list-group-item"><span class="badge bg-secondary">DevOps</span> Ubuntu, MySQL</li>
+                        <li class="list-group-item"><span class="badge bg-danger">Frontend</span> HTML, CSS, Boostrap, amChart, DataTables</li>
+                        <li class="list-group-item"><span class="badge bg-warning">Office</span> Word, Excel, Power Point</li>
+                    </ul>
                 </div>
             </div>
-        </main>
+        </div>
 
-<!--         <footer>
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
-        </footer> -->
     </div>
+
+    <!-- 引入 Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>
