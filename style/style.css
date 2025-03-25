@@ -1,0 +1,50 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+.content-section {
+    display: none;
+    padding: 50px 20px;
+}
+.active {
+    display: block;
+}
+.project-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 40px;
+}
+/* .project-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+.project-img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: contain; 
+    background-color: #f0f0f0; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.project-info {
+    max-width: 500px;
+    padding: 20px;
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.page-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+}
